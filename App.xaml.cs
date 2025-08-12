@@ -15,8 +15,7 @@ namespace Win90s
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            // Set the application to use a custom theme or style if needed
-            // Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("pack://application:,,,/YourTheme.xaml") });
+            
             var mainWindow = new MainWindow();
             mainWindow.CommandBindings.Add
                 (
