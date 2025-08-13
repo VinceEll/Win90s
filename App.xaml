@@ -10,8 +10,12 @@
             <Setter Property="AllowsTransparency" Value="True"/>
             <Setter Property="local:WindowAppHelper.UseNoRoundCorners" Value="True"/>
             <Setter Property="Background" Value="Gray"/>
-            <Setter Property="FontFamily" Value="Microsoft Sans Serif"/>
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/Perfect DOS VGA 437"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+            <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
+            <Setter Property="TextOptions.TextHintingMode" Value="Fixed"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Window">
@@ -27,7 +31,7 @@
                                         <!-- Title bar -->
                                         <Border x:Name="PART_TitleBar"
                                             Background="Navy"
-                                            Height="24"
+                                            Height="22"
                                             DockPanel.Dock="Top">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
@@ -45,7 +49,7 @@
                                                 <!-- Close button -->
                                                 <Button x:Name="PART_CloseButton"
                                                     Grid.Column="2"
-                                                    Content="X"
+                                                    Content="X" FontWeight="Bold"
                                                     Width="24" Height="24"
                                                     Background="LightGray"
                                                     BorderBrush="Black"

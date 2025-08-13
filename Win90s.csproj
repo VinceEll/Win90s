@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Perfect DOS VGA 437 Win.ttf" />
     <None Remove="Icons\arrowdown.png" />
     <None Remove="Icons\arrowUp.png" />
     <None Remove="Icons\Cross.png" />
@@ -16,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\Perfect DOS VGA 437 Win.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\arrowdown.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
