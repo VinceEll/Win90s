@@ -16,11 +16,9 @@ namespace Win90s
         
         public MainWindow()
         {
-            //WindowStyle = WindowStyle.None;
-            //ResizeMode = ResizeMode.CanResize;
-            //AllowsTransparency = true;
+            
             InitializeComponent();
-            //Loaded += MainWindow_Loaded;
+
         }
 
         
