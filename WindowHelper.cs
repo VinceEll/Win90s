@@ -28,6 +28,12 @@ namespace Win90s
                     window.DragMove();
             };
 
+            dragElement.MouseLeftButtonDown += (s, e) =>
+            {
+                if (e.ClickCount == 2)
+                    window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+            };
+
             // --- Enable Resize ---
 
             resizeBorder.MouseMove += (s, e) =>
