@@ -1,0 +1,217 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Win90s">
+
+    <!-- === GLOBAL TEXT SETTINGS === -->
+    <Style TargetType="Control" BasedOn="{x:Null}">
+        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Perfect DOS VGA 437"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
+        <Setter Property="TextOptions.TextHintingMode" Value="Fixed"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="{x:Static SystemColors.ControlBrush}"/>
+        <Setter Property="Padding" Value="2,1"/>
+    </Style>
+
+    <!-- === TEXTBLOCK === -->
+    <Style TargetType="TextBlock" BasedOn="{x:Null}">
+        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Perfect DOS VGA 437"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
+        <Setter Property="TextOptions.TextHintingMode" Value="Fixed"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <!-- === BUTTON === -->
+    <Style TargetType="Button">
+        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Perfect DOS VGA 437"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
+        <Setter Property="TextOptions.TextHintingMode" Value="Fixed"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="{x:Static SystemColors.ControlBrush}"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="4,2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="White" Offset="0"/>
+                                <GradientStop Color="Gray" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- Pressed = Sunken -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="Gray" Offset="0"/>
+                                        <GradientStop Color="White" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <!-- Disabled -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="DarkGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- === MENU ITEM === -->
+    <Style TargetType="MenuItem">
+        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Perfect DOS VGA 437"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Background" Value="{x:Static SystemColors.ControlBrush}"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="MenuItem">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                        <ContentPresenter/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="Navy"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- === TEXTBOX === -->
+    <Style TargetType="TextBox">
+        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Perfect DOS VGA 437"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="2,1"/>
+    </Style>
+
+    <!-- === WINDOW FRAME (90Window style) === -->
+    <Style x:Key="90Window" TargetType="Window">
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="Background" Value="Gray"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Perfect DOS VGA 437"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Window">
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Border BorderBrush="LightGray" BorderThickness="4" Background="Transparent">
+                            <Border BorderBrush="Black" BorderThickness="2">
+                                <DockPanel LastChildFill="True">
+                                    <!-- Title bar -->
+                                    <Border x:Name="PART_TitleBar" Background="Navy" Height="24" DockPanel.Dock="Top">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{TemplateBinding Title}"
+                                                       Foreground="White"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"/>
+                                            <!-- Close button -->
+                                            <Button x:Name="PART_CloseButton"
+                                                    Grid.Column="1"
+                                                    Content="X"
+                                                    Width="24" Height="24"
+                                                    Margin="0,-2,-2,0"
+                                                    Background="LightGray"
+                                                    BorderBrush="Black"
+                                                    Command="{x:Static ApplicationCommands.Close}"/>
+                                        </Grid>
+                                    </Border>
+                                    <!-- Window content -->
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
+                                </DockPanel>
+                            </Border>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Window">
+                    <Border BorderBrush="Black" BorderThickness="2" x:Name="OuterBorder">
+                        <Border BorderBrush="LightGray" BorderThickness="4" Background="Transparent" x:Name="PART_WindowBorder">
+                            <Border BorderBrush="Black" BorderThickness="2">
+                                <DockPanel LastChildFill="True">
+                                    <!-- Title bar -->
+                                    <Border x:Name="PART_TitleBar" Background="Navy" Height="24" DockPanel.Dock="Top">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{TemplateBinding Title}"
+                                                   Foreground="White"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"/>
+                                            <!-- Close button -->
+                                            <Button x:Name="PART_CloseButton"
+                                                Grid.Column="1"
+                                                Content="X"
+                                                Width="24" Height="24"
+                                                Margin="0,-2,-2,0"
+                                                Background="LightGray"
+                                                BorderBrush="Black"
+                                                Command="{x:Static ApplicationCommands.Close}"/>
+                                        </Grid>
+                                    </Border>
+                                    <!-- Window content -->
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
+                                </DockPanel>
+                            </Border>
+                        </Border>
+                    </Border>
+
+                    <!-- Hook up drag + resize automatically -->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsActive" Value="True">
+                            <Setter TargetName="PART_TitleBar" Property="Tag">
+                                <Setter.Value>
+                                    <MultiBinding Converter="{x:Static local:AttachDragResizeBehavior.Instance}">
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}"/>
+                                        <Binding ElementName="PART_TitleBar"/>
+                                        <Binding ElementName="PART_WindowBorder"/>
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

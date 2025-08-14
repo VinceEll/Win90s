@@ -20,7 +20,7 @@ namespace Win90s
 
         public static void EnableDragAndResize(Window window, UIElement dragElement, FrameworkElement resizeBorder)
         {
-
+            //TODO : Add snapping to grid
             // --- Enable Drag ---
             dragElement.MouseLeftButtonDown += (sender, e) =>
             {
@@ -150,6 +150,9 @@ namespace Win90s
             return ResizeDirection.None;
         }
 
+        private static double snap(double value,double gridsize = 8) =>
+            Math.Round(value / gridsize) * gridsize;
+
         private static Rect GetNewBounds(Rect start, Point startMouse, Point currentMouse, ResizeDirection dir)
         {
             var dx = currentMouse.X - startMouse.X;
@@ -159,7 +162,7 @@ namespace Win90s
             double top = start.Top;
             double width = start.Width;
             double height = start.Height;
-
+            
             if (dir.HasFlag(ResizeDirection.Left))
             {
                 left += dx;
@@ -178,6 +181,10 @@ namespace Win90s
             {
                 height += dy;
             }
+            left = snap(left);
+            top = snap(top);
+            width = snap(width);
+            height = snap(height);
             return new Rect(left, top, width, height);
         }
 
